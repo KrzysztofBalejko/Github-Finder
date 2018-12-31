@@ -19,14 +19,14 @@ const userText = e.target.value;
 
     if(data.profile.message === 'Not Found') {
       // Show alert
-
+      ui.showAlert('User not found', 'alert alert-danger');
     } else {
       // Show profile
       ui.showProfile(data.profile);
     }
   })
-  } else {
+    } else {
     // Clear profile
-
+    ui.clearProfile();
   }
 });
