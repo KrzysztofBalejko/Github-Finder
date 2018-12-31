@@ -23,6 +23,7 @@ const userText = e.target.value;
     } else {
       // Show profile
       ui.showProfile(data.profile);
+      ui.showRepos(data.repos);
     }
   })
     } else {

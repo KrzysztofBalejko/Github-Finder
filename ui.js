@@ -12,9 +12,9 @@ class UI {
         </div>
         <div class="col-md-9">
         <span class="badge badge-primary">Public Repos: ${user.public_repos}</span>
-        <span class="badge badge-primary">Public Gists: ${user.public_gists}</span>
-        <span class="badge badge-primary">Public Followers: ${user.public_followers}</span>
-        <span class="badge badge-primary">Public Following: ${user.public_following}</span>
+        <span class="badge badge-success">Public Gists: ${user.public_gists}</span>
+        <span class="badge badge-info">Public Followers: ${user.public_followers}</span>
+        <span class="badge badge-warning">Public Following: ${user.public_following}</span>
         <br><br>
         <ul class="list-group">
           <li class="list-group-item">Company: ${user.company}</li>
@@ -43,6 +43,30 @@ class UI {
     setTimeout(() => {
       this.clearAlert();
     }, 3000);
+  }
+  
+  // Show user repos
+  showRepos(repos) {
+    let output = '';
+
+    repos.forEach(function(repo){
+      output += `
+      <div class="card card-body mb-2">
+        <div class="row">
+          <div class="col-md-6">
+            <a href="${repo.html_url}" target="_blank">${repo.name}
+          </div>
+          <div class="col-md-6">
+          <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
+        <span class="badge badge-success">Watchers: ${repo.watchers_count}</span>
+        <span class="badge badge-warning">Forks: ${repo.forms_count}</span>
+          </div>
+        </div>
+      </div>
+      `;
+    })
+    // Output repos
+    document.getElementById('repos').innerHTML = output;
   }
   
   // Clear alert message
